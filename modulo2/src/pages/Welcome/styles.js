@@ -1,39 +1,45 @@
-import { StyleSheet } from "react-native";
-import { colors, metrics } from "~/styles";
+import { StyleSheet } from 'react-native';
+import { colors, metrics } from '~/styles';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.secondary,
     padding: metrics.basePadding * 2,
-    justifyContent: "center",
-    alignItems: "stretch"
+    justifyContent: 'center',
+    alignItems: 'stretch',
   },
 
   title: {
-    textAlign: "center",
+    textAlign: 'center',
     color: colors.white,
     fontSize: 24,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
 
   text: {
-    textAlign: "center",
+    textAlign: 'center',
     marginTop: metrics.baseMargin,
     fontSize: 15,
     color: colors.light,
-    lineHeight: 21
+    lineHeight: 21,
+  },
+
+  error: {
+    color: colors.danger,
+    textAlign: 'center',
+    marginTop: metrics.baseMargin,
   },
 
   form: {
-    marginTop: metrics.baseMargin * 2
+    marginTop: metrics.baseMargin * 2,
   },
 
   input: {
     backgroundColor: colors.white,
     borderRadius: metrics.baseRadius,
     height: 44,
-    paddingHorizontal: metrics.basePadding
+    paddingHorizontal: metrics.basePadding,
   },
 
   button: {
@@ -41,15 +47,15 @@ const styles = StyleSheet.create({
     borderRadius: metrics.baseRadius,
     height: 44,
     marginTop: metrics.baseMargin,
-    justifyContent: "center",
-    alignItems: "center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   buttonText: {
     color: colors.white,
-    fontWeight: "bold",
-    fontSize: 15
-  }
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
 });
 
 export default styles;
