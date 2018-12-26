@@ -1,12 +1,12 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb", "plogin:react-native/all"],
+  "extends": ["airbnb", "plugin:react-native/all"],
   "plugins": ["react-native", "jsx-a11y", "import"],
   "env": {
     "jest": true
   },
   "rules": {
-    "react/jsx-filename-extensions": [
+    "react/jsx-filename-extension": [
       "error",
       {
         "extensions": [".jsx", ".js"]
