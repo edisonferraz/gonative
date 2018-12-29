@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 import { View, Text, TouchableOpacity } from 'react-native';
@@ -15,6 +16,14 @@ class Header extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     backButton: PropTypes.bool,
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
+  };
+
+  goBack = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Repositories');
   };
 
   render() {
@@ -23,7 +32,7 @@ class Header extends Component {
     return (
       <View style={styles.container}>
         {backButton && (
-          <TouchableOpacity onPress={this.signOut}>
+          <TouchableOpacity onPress={this.goBack}>
             <Icon name="chevron-left" size={16} style={styles.icon} />
           </TouchableOpacity>
         )}
@@ -33,4 +42,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withNavigation(Header);

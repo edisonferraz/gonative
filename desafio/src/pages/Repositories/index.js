@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import api from '~/services/api';
 import {
   View,
@@ -17,6 +18,12 @@ import RepositoryItem from './RepositoryItem';
 import styles from './styles';
 
 export default class Repositories extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func,
+    }).isRequired,
+  };
+
   state = {
     repositoryName: 'rocketseat/comunidade',
     repositories: [],
@@ -45,9 +52,11 @@ export default class Repositories extends Component {
 
     const newRepository = {
       id: data.id,
-      name: data.name,
-      organization: data.organization.login,
       avatar: data.organization.avatar_url,
+      name: data.name,
+      full_name: data.full_name,
+      organization: data.organization.login,
+      html_url: data.html_url,
     };
 
     this.setState(
@@ -65,7 +74,15 @@ export default class Repositories extends Component {
     this.setState({ refreshing: false });
   };
 
-  renderListItem = ({ item }) => <RepositoryItem repository={item} />;
+  renderListItem = ({ item }) => {
+    const { navigation } = this.props;
+
+    return (
+      <TouchableOpacity onPress={() => navigation.navigate('Issues', item)}>
+        <RepositoryItem repository={item} />
+      </TouchableOpacity>
+    );
+  };
 
   render() {
     const {
