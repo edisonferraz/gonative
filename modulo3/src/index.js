@@ -3,6 +3,13 @@ import './config/ReactotronConfig';
 import React from 'react';
 import { View } from 'react-native';
 
-const App = () => <View />;
+import { Provider } from 'react-redux';
+import store from './store';
+
+const App = () => (
+  <Provider store={store}>
+    <View />
+  </Provider>
+);
 
 export default App;
