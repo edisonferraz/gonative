@@ -1,5 +1,6 @@
 import Reactotron from 'reactotron-react-native';
 import { reactotronRedux } from 'reactotron-redux';
+import sagaPluhgin from 'reactotron-redux-saga';
 
 if (__DEV__) {
   const tron = Reactotron.configure({
@@ -7,6 +8,7 @@ if (__DEV__) {
   }) // controls connection & communication settings
     .useReactNative() // add all built-in react native plugins
     .use(reactotronRedux())
+    .use(sagaPluhgin())
     .connect(); // let's connect!
 
   console.tron = tron;
